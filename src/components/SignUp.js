@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import {Link, useNavigate } from "react-router-dom";
-import axios from 'axios';
+
 const SignUp = () => {
 
   const [name,setName]=useState('');
@@ -16,41 +16,17 @@ const SignUp = () => {
     }
   },[Navigate])
 
-  // const collectData=async ()=>{
-  //   console.log(name,email,password);
-  //   let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app/signUp',{
-  //     method:'post',
-  //     body:JSON.stringify({name,email,password}),
-  //     headers:{
-  //       'Content-Type':'application/json'
-  //     }
-  //   });
-  //   result=await result.json();
-  //   console.log(result);
-  //   localStorage.setItem('user',JSON.stringify(result.User));
-  //   localStorage.setItem('token',JSON.stringify(result.auth));
-  //   if(result)
-  //   {      
-      
-  //     Navigate('/Home');
-  //   }
-
-  // }
   const collectData=async ()=>{
     console.log(name,email,password);
-    const response = await axios.post('https://main--monumental-lokum-1725ab.netlify.app/signUp', {
-      name,
-      email,
-      password
-    }, {
-      headers: {
-        'Content-Type': 'application/json'
+    let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app/signUp',{
+      method:'post',
+      body:JSON.stringify({name,email,password}),
+      headers:{
+        'Content-Type':'application/json'
       }
     });
-
-    const result = response.data;
+    result=await result.json();
     console.log(result);
-
     localStorage.setItem('user',JSON.stringify(result.User));
     localStorage.setItem('token',JSON.stringify(result.auth));
     if(result)
@@ -60,6 +36,7 @@ const SignUp = () => {
     }
 
   }
+  
 
   return (
     <div className="register">
