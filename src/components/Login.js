@@ -36,7 +36,7 @@ const Login=()=>{
             <input className="inputBox" type="email" placeholder='Enter email' onChange={(e)=>setEmail(e.target.value)} value={email}/>
             <input className="inputBox" type="password" placeholder='Enter password' onChange={(e)=>setPassword(e.target.value)} value={password}/>
             <button onClick={handleLogin} >Login</button>
-            <h2 className='tologin' >Not yet registered.<Link className="tlink" to="/sign_up">Signup</Link> </h2>
+            <h2 className='tologin' >Not yet registered.<Link className="tlink" to="/">Signup</Link> </h2>
         </div>
     )
 }
