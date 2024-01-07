@@ -1,15 +1,14 @@
 import React from "react";
-import Nav from "./components/Nav";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/Footer";
-import SignUp from "./components/SignUp";
-import Private from "./components/Private";
-import Login from "./components/Login";
 import AddProduct from "./components/AddProduct";
-import UpdateProduct from "./components/UpdateProduct";
-import ProductList from "./components/ProductList";
+import Footer from "./components/Footer";
 import Home from "./components/Home";
+import Login from "./components/Login";
+import Nav from "./components/Nav";
+import ProductList from "./components/ProductList";
+import SignUp from "./components/SignUp";
+import UpdateProduct from "./components/UpdateProduct";
 function App() {
   return (
     <div className="App">
@@ -25,7 +24,7 @@ function App() {
             <Route path="/add-product" element={<AddProduct />} />
             <Route path="/update-product/:id" element={<UpdateProduct />} />
             <Route path="/products" element={<ProductList />} />
-            <Route path="/logout" element={<h1></h1>} />
+            
           
           {/* </Route> */}
           

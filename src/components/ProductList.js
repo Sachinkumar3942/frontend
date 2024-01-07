@@ -4,9 +4,7 @@ const ProductList = () => {
   const [products,setProducts]=  useState([]);
   
 
-  useEffect(()=>{
-    getProducts();
-  },[])
+  
 
   const getProducts=async()=>{
     try
@@ -27,6 +25,10 @@ const ProductList = () => {
     }
    
   }
+
+  useEffect(()=>{
+    getProducts();
+  },[getProducts])
 
   const searchHandle=async(event)=>{
     let key=event.target.value;

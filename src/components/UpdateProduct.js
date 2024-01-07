@@ -11,10 +11,7 @@ const UpdateProduct = () => {
   const Navigate=useNavigate();
   // const [error, setError] = useState(false);
   
-  useEffect(()=>{
-    getProductDetails();
-  },[])
-
+  
   const getProductDetails=async()=>{
     try
     {
@@ -36,10 +33,14 @@ const UpdateProduct = () => {
    
   }
 
+  useEffect(()=>{
+    getProductDetails();
+  },[getProductDetails])
+
   const handleClick = async () => {
     
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-    let data = await fetch(`http://localhost:5000/product/${params.id}`, {
+     await fetch(`http://localhost:5000/product/${params.id}`, {
       method: "Put",
       body: JSON.stringify({ name, price, brand, category, userId }),
       headers:{
@@ -47,7 +48,7 @@ const UpdateProduct = () => {
         authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
     });
-    data = await data.json();
+    // data = await data.json();
     
     Navigate('/products')
 

@@ -11,7 +11,7 @@ const Login=()=>{
         {
             Navigate('/Home')
         }
-    },[])
+    },[Navigate])
     const handleLogin=async ()=>{
         let result= await fetch('http://localhost:5000/login',{
            method: 'post',

@@ -13,7 +13,7 @@ const SignUp = () => {
     {
       Navigate('/Home');
     }
-  },[])
+  },[Navigate])
 
   const collectData=async ()=>{
     console.log(name,email,password);

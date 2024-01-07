@@ -13,7 +13,7 @@ const AddProduct = () => {
       return false;
     }
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-    let data = await fetch("http://localhost:5000/add-product", {
+   await fetch("http://localhost:5000/add-product", {
       method: "post",
       body: JSON.stringify({ name, price, brand, category, userId }),
       headers:{
@@ -21,7 +21,6 @@ const AddProduct = () => {
         authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
     });
-    data = await data.json();
     setName("");
     setBrand("");
     setCategory("");
