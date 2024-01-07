@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useCallback } from 'react'
 import { Link } from 'react-router-dom';
 const ProductList = () => {
   const [products,setProducts]=  useState([]);
@@ -6,25 +6,40 @@ const ProductList = () => {
 
   
 
-  const getProducts=async()=>{
-    try
-    {
-      let data=await fetch('http://localhost:5000/product-list',{
-        headers:{
-          authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
-        }
-      });
-      data=await data.json();
-      setProducts(data);
-      console.log("Products",products)
-    }
-    catch 
-    {
-      console.log("Fasiled to fetch products list ") ;  
-      setProducts([]) ;  
-    }
+  // const getProducts=async()=>{
+  //   try
+  //   {
+  //     let data=await fetch('http://localhost:5000/product-list',{
+  //       headers:{
+  //         authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+  //       }
+  //     });
+  //     data=await data.json();
+  //     setProducts(data);
+  //     console.log("Products",products)
+  //   }
+  //   catch 
+  //   {
+  //     console.log("Fasiled to fetch products list ") ;  
+  //     setProducts([]) ;  
+  //   }
    
-  }
+  // }
+  const getProducts = useCallback(async () => {
+    try {
+      let data = await fetch('http://localhost:5000/product-list', {
+        headers: {
+          authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`,
+        },
+      });
+      data = await data.json();
+      setProducts(data);
+      console.log("Products", products);
+    } catch {
+      console.log("Failed to fetch products list ");
+      setProducts([]);
+    }
+  }, [products]);
 
   useEffect(()=>{
     getProducts();

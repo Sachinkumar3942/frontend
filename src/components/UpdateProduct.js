@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useCallback } from 'react'
 import { useState } from 'react';
 import {useParams,useNavigate} from 'react-router-dom';
 
@@ -12,26 +12,44 @@ const UpdateProduct = () => {
   // const [error, setError] = useState(false);
   
   
-  const getProductDetails=async()=>{
-    try
-    {
-      let data=await fetch(`http://localhost:5000/product/${params.id}`,{
-        headers:{
-          authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
-        }
+  // const getProductDetails=async()=>{
+  //   try
+  //   {
+  //     let data=await fetch(`http://localhost:5000/product/${params.id}`,{
+  //       headers:{
+  //         authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
+  //       }
+  //     });
+  //     data=await data.json();
+  //     setName(data.name);
+  //     setPrice(data.price);
+  //     setBrand(data.brand);
+  //     setCategory(data.category);
+  //   }
+  //   catch 
+  //   {
+  //     console.log("Failed to fetch updated products ") ;
+  //   }
+   
+  // }
+
+  const getProductDetails = useCallback(async () => {
+    try {
+      let data = await fetch(`http://localhost:5000/product/${params.id}`, {
+        headers: {
+          authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`,
+        },
       });
-      data=await data.json();
+      data = await data.json();
       setName(data.name);
       setPrice(data.price);
       setBrand(data.brand);
       setCategory(data.category);
+    } catch {
+      console.log("Failed to fetch updated products ");
     }
-    catch 
-    {
-      console.log("Failed to fetch updated products ") ;
-    }
-   
-  }
+
+  }, [params.id]);
 
   useEffect(()=>{
     getProductDetails();
