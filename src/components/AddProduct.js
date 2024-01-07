@@ -13,7 +13,7 @@ const AddProduct = () => {
       return false;
     }
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-   await fetch("https://main--monumental-lokum-1725ab.netlify.app//add-product", {
+   await fetch("https://main--monumental-lokum-1725ab.netlify.app/add-product", {
       method: "post",
       body: JSON.stringify({ name, price, brand, category, userId }),
       headers:{
