@@ -1,10 +1,226 @@
-.App {
-  text-align: center;
+.nav-ul{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 0rem;
+  padding: 1rem;
+  position:fixed;
+  top:0;
+  width:100%;
+  background-color: rgb(10, 166, 244);
+  border-radius: 10px;
+  list-style-type: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.register{
+  min-height: 66vh;
+}
+
+.sig{
+  list-style-type: none;
+  padding-top: 5rem;
+}
+
+.nav-ul li a{
+  color:white;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.footer-ul{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 0rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  /* background-color: rgb(10, 166, 244); */
+  border-radius: 10px;
+  list-style-type: none;
+  
+}
+
+.footer-ul li a{
+  padding: 0.5rem;
+  padding-bottom: none;
+  text-decoration: none;
+  color:black
+}
+
+
+.footer{
+  /* position: absolute; */
+  
+  text-align: center;
+  width: 100%;
+  background-color:rgb(10, 166, 244);
+  border-radius: 1rem;
+  padding: 1.2px;
+  bottom: 0;
+}
+
+.link{
+  color:rgb(3, 3, 3);
+}
+
+.search{
+  margin: 0.4rem;
+  padding:0.8rem;
+  background-color: aquamarine;
+  color:#000000;
+  border-radius: 20px;
+  border-color: aquamarine;
+  outline: none;
+  width:"auto";
+  min-width: 30dvw;
+}
+
+.Home{
+  margin-top: 5rem;
+  min-height: 74.7dvh;
+  background-color: whitesmoke;
+}
+
+.h2o{
+  color: rgb(57, 233, 57);
+}
+.signup{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(0, 0,0,50%);
+  margin-left: 15%;
+  margin-right: 15%;
+  justify-content: center;
+}
+body{
+  background-color: rgba(253, 5, 5, 0.5);
+}
+.inputBox{
+  margin: 0.4rem;
+  padding:0.8rem;
+  background-color: aquamarine;
+  color:#000000;
+  border-radius: 20px;
+  border-color: aquamarine;
+  outline: none;
+  width:"auto";
+  min-width: 30dvw;
+}
+
+.error{
+  color:rgb(232, 240, 10);
+  
+}
+
+.product-list{
+  min-height: 72.5vh;
+  text-align: center;
+  margin-top: 5.5rem;
+  font-size: 17.5px;
+}
+
+.product-list ul li{
+  display: inline-block;
+  border:solid;
+  border-color: rgb(247, 247, 248);
+  padding: 10px;
+  width: 12%;
+  background-color:whitesmoke;
+  color:rgb(3, 3, 3)
+}
+
+.product-list ul{
+  margin:0px;
+  
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+button{
+ 
+  padding:0.7rem;
+  background-color: rgb(91, 8, 236);
+  color:#eee7e7;
+  border-radius: 20px;
+  border-color: rgb(91, 8, 236);
+  outline: none;
+  width:5rem;
+
+}
+
+.delete{
+  padding:0.3rem;
+  background-color: rgb(91, 8, 236);
+  color:#eee7e7;
+  border-radius: 20px;
+  border-color: rgb(91, 8, 236);
+  outline: none;
+  width:4rem;
+  bottom:0;
+} 
+
+.del{
+  display: inline-block;
+  border:solid;
+  border-color: rgb(37, 9, 250);
+  
+  width: 35%;
+}
+
+.btn:hover {
+  background-color: #ed6b0e;
+  color: white;
+  border-color: #ed6b0e;
+}
+
+.logo{
+  width: 50px;
+  height: 50px;
+  border-radius: 60%;
+}
+
+.addProduct{
+  color: yellow;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85.7dvh;
+  background-color: rgb(0, 0,0,50%);
+  margin-left: 25%;
+  margin-right: 25%;
+  
+}
+
+.tologin{
+  color:yellow;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.tlink{
+  color: violet;
+}
+
+.tlink:hover{
+  color: white;
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(0, 0,0,60%);
+  margin-left: 25%;
+  margin-right: 25%;
+  justify-content: center;
+  min-height: 67dvh;
+}
+
+button:hover{
+  background-color :red;
+  border-color: red;
 }
 
 @media (prefers-reduced-motion: no-preference) {
