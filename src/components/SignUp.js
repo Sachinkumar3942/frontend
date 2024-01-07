@@ -15,26 +15,35 @@ const SignUp = () => {
     }
   },[Navigate])
 
-  const collectData=async ()=>{
-    console.log(name,email,password);
-    let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app/signUp',{
-      method:'post',
-      body:JSON.stringify({name,email,password}),
-      headers:{
-        'Content-Type':'application/json'
+  const collectData = async () => {
+    try {
+      let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app/signUp', {
+        method: 'post',
+        body: JSON.stringify({ name, email, password }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      if (!result.ok) {
+        throw new Error(`Server returned ${result.status} ${result.statusText}`);
       }
-    });
-    result=await result.json();
-    console.log(result);
-    localStorage.setItem('user',JSON.stringify(result.User));
-    localStorage.setItem('token',JSON.stringify(result.auth));
-    if(result)
-    {      
+  
+      result = await result.json();
+      console.log(result);
       
-      Navigate('/Home');
+      localStorage.setItem('user', JSON.stringify(result.User));
+      localStorage.setItem('token', JSON.stringify(result.auth));
+  
+      if (result) {
+        Navigate('/Home');
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle the error, show a message, or perform any other necessary actions
     }
-
-  }
+  };
+  
 
   return (
     <div className="register">
