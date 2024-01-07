@@ -17,7 +17,7 @@ const SignUp = () => {
 
   const collectData=async ()=>{
     console.log(name,email,password);
-    let result = await fetch('http://localhost:5000/signUp',{
+    let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app/signUp',{
       method:'post',
       body:JSON.stringify({name,email,password}),
       headers:{
