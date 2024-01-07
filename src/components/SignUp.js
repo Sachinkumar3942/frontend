@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import {Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 const SignUp = () => {
 
   const [name,setName]=useState('');
@@ -15,35 +16,50 @@ const SignUp = () => {
     }
   },[Navigate])
 
-  const collectData = async () => {
-    try {
-      let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app/signUp', {
-        method: 'post',
-        body: JSON.stringify({ name, email, password }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-  
-      if (!result.ok) {
-        throw new Error(`Server returned ${result.status} ${result.statusText}`);
-      }
-  
-      result = await result.json();
-      console.log(result);
+  // const collectData=async ()=>{
+  //   console.log(name,email,password);
+  //   let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app/signUp',{
+  //     method:'post',
+  //     body:JSON.stringify({name,email,password}),
+  //     headers:{
+  //       'Content-Type':'application/json'
+  //     }
+  //   });
+  //   result=await result.json();
+  //   console.log(result);
+  //   localStorage.setItem('user',JSON.stringify(result.User));
+  //   localStorage.setItem('token',JSON.stringify(result.auth));
+  //   if(result)
+  //   {      
       
-      localStorage.setItem('user', JSON.stringify(result.User));
-      localStorage.setItem('token', JSON.stringify(result.auth));
-  
-      if (result) {
-        Navigate('/Home');
+  //     Navigate('/Home');
+  //   }
+
+  // }
+  const collectData=async ()=>{
+    console.log(name,email,password);
+    const response = await axios.post('https://main--monumental-lokum-1725ab.netlify.app/signUp', {
+      name,
+      email,
+      password
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
       }
-    } catch (error) {
-      console.error("Error:", error);
-      // Handle the error, show a message, or perform any other necessary actions
+    });
+
+    const result = response.data;
+    console.log(result);
+
+    localStorage.setItem('user',JSON.stringify(result.User));
+    localStorage.setItem('token',JSON.stringify(result.auth));
+    if(result)
+    {      
+      
+      Navigate('/Home');
     }
-  };
-  
+
+  }
 
   return (
     <div className="register">
