@@ -8,21 +8,24 @@ const SignUp = () => {
   const [password,setPassword]=useState('');
   const Navigate=useNavigate();
 
-  useEffect(()=>{
-    const auth=localStorage.getItem('user');
-    if(auth)
+  // useEffect(()=>{
+  //   const auth=localStorage.getItem('user');
+  //   if(auth)
+  //   {
+  //     Navigate('/Home');
+  //   }
+  //   else 
+  //   {
+  //     Navigate("/")
+  //   }
+  // },[])  
+    if(!localStorage.getItem("token")) 
     {
-      Navigate('/Home');
+      Navigate("/");
     }
-    else 
-    {
-      Navigate("/")
+    else{
+      Navigate("/Home");
     }
-  },[Navigate])  
-    // if(!localStorage.getItem("token")) 
-    // {
-    //   Navigate("/");
-    // }
 
   const collectData=async ()=>{
     console.log(name,email,password);
