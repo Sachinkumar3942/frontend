@@ -25,13 +25,12 @@ const SignUp = () => {
         'Content-Type':'application/json'
       }
     });
-    // result=await result.json();
+    result=await result.json();
     console.log(result);
     localStorage.setItem('user',JSON.stringify(result.User));
     localStorage.setItem('token',JSON.stringify(result.auth));
     if(result)
     {      
-      
       Navigate('/Home');
     }
 
