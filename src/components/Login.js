@@ -13,7 +13,7 @@ const Login=()=>{
         }
     },[Navigate])
     const handleLogin=async ()=>{
-        let result= await fetch('https://main--monumental-lokum-1725ab.netlify.app/login',{
+        let result= await fetch('https://sachin-backend.onrender.com/login',{
            method: 'post',
            body:JSON.stringify({email,password}),
            headers:{
