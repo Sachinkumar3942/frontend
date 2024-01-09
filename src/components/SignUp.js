@@ -14,18 +14,22 @@ const SignUp = () => {
     {
       Navigate('/Home');
     }
-  },[Navigate])
+    else 
+    {
+      Navigate("/")
+    }
+  },[])  
 
   const collectData=async ()=>{
     console.log(name,email,password);
-    const  result = await fetch('https://main--monumental-lokum-1725ab.netlify.app',{
+    const  result = await fetch('https://sachin-backend.onrender.com/',{
       method:'post',
       body:JSON.stringify({name,email,password}),
       headers:{
         'Content-Type':'application/json'
       }
     });
-    // result=await result.json();
+    result=await result.json();
     console.log(result);
     localStorage.setItem('user',JSON.stringify(result.User));
     localStorage.setItem('token',JSON.stringify(result.auth));
@@ -35,7 +39,6 @@ const SignUp = () => {
     }
 
   }
-  
 
   return (
     <div className="register">

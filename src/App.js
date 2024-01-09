@@ -19,13 +19,10 @@ function App() {
         <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           {/* <Route element={<Private />}> */}
-          
             <Route path="/Home" element={<Home/>} />
             <Route path="/add-product" element={<AddProduct />} />
             <Route path="/update-product/:id" element={<UpdateProduct />} />
             <Route path="/products" element={<ProductList />} />
-            
-          
           {/* </Route> */}
           
           
