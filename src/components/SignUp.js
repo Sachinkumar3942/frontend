@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -8,24 +8,21 @@ const SignUp = () => {
   const [password,setPassword]=useState('');
   const Navigate=useNavigate();
 
-  // useEffect(()=>{
-  //   const auth=localStorage.getItem('user');
-  //   if(auth)
-  //   {
-  //     Navigate('/Home');
-  //   }
-  //   else 
-  //   {
-  //     Navigate("/")
-  //   }
-  // },[])  
-    if(!localStorage.getItem("token")) 
+  useEffect(()=>{
+    const auth=localStorage.getItem('user');
+    if(auth)
     {
-      Navigate("/");
+      Navigate('/Home');
     }
-    else{
-      Navigate("/Home");
-    }
+    
+  },[Navigate])  
+    // if(!localStorage.getItem("token")) 
+    // {
+    //   Navigate("/");
+    // }
+    // else{
+    //   Navigate("/Home");
+    // }
 
   const collectData=async ()=>{
     console.log(name,email,password);
