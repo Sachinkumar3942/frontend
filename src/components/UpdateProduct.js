@@ -58,7 +58,7 @@ const UpdateProduct = () => {
   const handleClick = async () => {
     
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-     await fetch(`https://main--monumental-lokum-1725ab.netlify.app/product/${params.id}`, {
+     await fetch(`https://sachin-backend.onrender.com/product/${params.id}`, {
       method: "Put",
       body: JSON.stringify({ name, price, brand, category, userId }),
       headers:{
