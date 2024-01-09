@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import {Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -8,21 +8,25 @@ const SignUp = () => {
   const [password,setPassword]=useState('');
   const Navigate=useNavigate();
 
-  useEffect(()=>{
-    const auth=localStorage.getItem('user');
-    if(auth)
+  // useEffect(()=>{
+  //   const auth=localStorage.getItem('user');
+  //   if(auth)
+  //   {
+  //     Navigate('/Home');
+  //   }
+  //   else 
+  //   {
+  //     Navigate("/")
+  //   }
+  // },[])  
+    if(!localStorage.getItem("token")) 
     {
-      Navigate('/Home');
+      Navigate("/");
     }
-    else 
-    {
-      Navigate("/")
-    }
-  },[])  
 
   const collectData=async ()=>{
     console.log(name,email,password);
-    const  result = await fetch('https://sachin-backend.onrender.com/',{
+    let result = await fetch('https://sachin-backend.onrender.com/',{
       method:'post',
       body:JSON.stringify({name,email,password}),
       headers:{
