@@ -27,7 +27,7 @@ const ProductList = () => {
   // }
   const getProducts = useCallback(async () => {
     try {
-      let data = await fetch('https://main--monumental-lokum-1725ab.netlify.app/product-list', {
+      let data = await fetch('https://sachin-backend.onrender.com/product-list', {
         headers: {
           authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`,
         },
@@ -48,7 +48,7 @@ const ProductList = () => {
   const searchHandle=async(event)=>{
     let key=event.target.value;
     if(key){
-      let data=await fetch(`https://main--monumental-lokum-1725ab.netlify.app/search/${key}`,{
+      let data=await fetch(`https://sachin-backend.onrender.com/search/${key}`,{
         headers:{
           authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
         }
@@ -63,7 +63,7 @@ const ProductList = () => {
   }
   
   const deleteItem=async(id)=>{
-    let data=await fetch(`https://main--monumental-lokum-1725ab.netlify.app/product/${id}`,{
+    let data=await fetch(`https://sachin-backend.onrender.com/product/${id}`,{
       method:"Delete",
       headers:{
         authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`

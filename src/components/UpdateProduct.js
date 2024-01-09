@@ -35,7 +35,7 @@ const UpdateProduct = () => {
 
   const getProductDetails = useCallback(async () => {
     try {
-      let data = await fetch(`https://main--monumental-lokum-1725ab.netlify.app/product/${params.id}`, {
+      let data = await fetch(`https://sachin-backend.onrender.com/product/${params.id}`, {
         headers: {
           authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`,
         },

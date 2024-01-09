@@ -12,7 +12,7 @@ const SignUp = () => {
     const auth=localStorage.getItem('user');
     if(auth)
     {
-      Navigate('/Home');
+      Navigate('/');
     }
     
   },[Navigate])  
