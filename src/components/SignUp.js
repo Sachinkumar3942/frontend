@@ -18,14 +18,14 @@ const SignUp = () => {
 
   const collectData=async ()=>{
     console.log(name,email,password);
-    let result = await fetch('https://main--monumental-lokum-1725ab.netlify.app',{
+    const  result = await fetch('https://main--monumental-lokum-1725ab.netlify.app',{
       method:'post',
       body:JSON.stringify({name,email,password}),
       headers:{
         'Content-Type':'application/json'
       }
     });
-    result=await result.json();
+    // result=await result.json();
     console.log(result);
     localStorage.setItem('user',JSON.stringify(result.User));
     localStorage.setItem('token',JSON.stringify(result.auth));
