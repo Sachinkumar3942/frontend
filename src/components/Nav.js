@@ -35,7 +35,9 @@ const Nav = () => {
           <li>
             <Link onClick={logout} to="/">
               Logout
-              ({auth.name}?{auth.name}:user)
+              ({JSON.parse(auth).name
+                ? JSON.parse(auth).name
+                : "User"})
             </Link>
           </li>
         </ul>
