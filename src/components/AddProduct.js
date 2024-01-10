@@ -24,7 +24,7 @@ const AddProduct = () => {
     setName("");
     setBrand("");
     setCategory("");
-    setPrice("");
+    setPrice(null);
   };
 
   return (
