@@ -11,7 +11,7 @@ import SignUp from "./components/SignUp";
 import UpdateProduct from "./components/UpdateProduct";
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       
       <BrowserRouter>
         <Nav />
